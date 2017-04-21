@@ -5,16 +5,16 @@ var cookies = require('browser-cookies'),
 $(function() {
   if(cookies.get('currentTestNum')) {
     log.loadStats();
-    window.test.run(cookies.get('currentModule'), parseInt(cookies.get('currentTestNum')), parseInt(cookies.get('currentStepNum')));
+    window.testster.run(cookies.get('currentModule'), parseInt(cookies.get('currentTestNum')), parseInt(cookies.get('currentStepNum')));
   }
 });
 
-window.test = {
+window.testster = {
   modules: {},
   run: function(module, testNum, stepNum) {
     if(typeof testNum == 'undefined') {
       testNum = 0;
-      window.test.reset();
+      window.testster.reset();
 
       if(!module) {
         cookies.set('runningAllModules', 'true');
@@ -29,8 +29,8 @@ window.test = {
             testNum   = parseInt(cookies.get('currentTestNum')) || 0,
             stepNum   = parseInt(cookies.get('currentStepNum')) || 0;
 
-        if(moduleNum < Object.keys(window.test.modules).length) {
-          var module = Object.keys(window.test.modules)[moduleNum];
+        if(moduleNum < Object.keys(window.testster.modules).length) {
+          var module = Object.keys(window.testster.modules)[moduleNum];
 
           cookies.set('currentModule', module);
           cookies.set('currentModuleNum', moduleNum + '');
@@ -48,7 +48,7 @@ window.test = {
         else {
           log.blank();
           log.stats();
-          window.test.reset();
+          window.testster.reset();
         }
       }
     }
@@ -61,12 +61,12 @@ window.test = {
 
       runModule(module, testNum, stepNum, function() {
         log.stats(module);
-        window.test.reset();
+        window.testster.reset();
       });
     }
 
     function runModule(module, testNum, stepNum, callback) {
-      runTest(window.test.modules[module], testNum, stepNum, callback);
+      runTest(window.testster.modules[module], testNum, stepNum, callback);
 
       function runTest(module, testNum, stepNum, callback) {
         stepNum  = stepNum  || 0;
@@ -93,7 +93,7 @@ window.test = {
     }
   },
   reset: function() {
-    log.resetStats(window.test.modules);
+    log.resetStats(window.testster.modules);
     cookies.erase('currentModule');
     cookies.erase('currentModuleNum');
     cookies.erase('currentTestNum');
@@ -105,5 +105,5 @@ window.test = {
 
 module.exports = function(modules) {
   window.test.modules = modules;
-  return window.test;
+  return window.testster;
 }
