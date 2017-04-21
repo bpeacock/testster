@@ -104,6 +104,6 @@ window.testster = {
 };
 
 module.exports = function(modules) {
-  window.test.modules = modules;
+  window.testster.modules = modules;
   return window.testster;
 }
