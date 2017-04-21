@@ -54,6 +54,26 @@ Driver.prototype = {
 
     return this;
   },
+  back: function() {
+    var self = this;
+
+    this.stack.push(function(next) {
+      if(!cookies.get('currentStepNum')) {
+        cookies.set('currentStepNum', self.stepNum + '');
+        log.saveStats();
+        window.history.back();
+      }
+      else {
+        cookies.erase('currentStepNum');
+
+        $(function() {
+          next();
+        });
+      }
+    });
+
+    return this;
+  },
   click: function(selector) {
     this.stack.push(function(next) {
       var $item = $(selector + ':visible');
