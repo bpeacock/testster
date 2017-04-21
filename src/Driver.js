@@ -195,6 +195,9 @@ Driver.prototype = {
     });
 
     return this;
+  },
+  pipe: function(f) {
+    return f(this);
   }
 };
 
