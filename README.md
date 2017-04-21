@@ -43,3 +43,14 @@ module.exports = {
 ```
 
 Reference the source for a full list of [functions](https://github.com/bpeacock/testster/blob/master/src/Driver.js) and [assertions](https://github.com/bpeacock/testster/blob/master/src/Assert.js).
+
+Running Tests
+-------------
+
+Open the javascript console on your webpage:
+
+**Run all tests:** `testster.run()`
+
+**Run a module:** `testster.run('login')`
+
+**Stop the tests:** `testster.reset()`
