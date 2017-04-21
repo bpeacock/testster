@@ -1,6 +1,6 @@
 {
   "name": "testster",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A simple in-browser behavior test driver.",
   "author": {
     "name": "Brian Peacock",
