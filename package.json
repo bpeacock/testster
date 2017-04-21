@@ -1,0 +1,19 @@
+{
+  "name": "testster",
+  "version": "0.0.1",
+  "description": "A simple in-browser behavior test driver.",
+  "author": {
+    "name": "Brian Peacock",
+    "url": "http://brianpeacock.me"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpeacock/testster.git"
+  },
+  "main": "testster.js",
+  "dependencies": {
+    "browser-cookies": "^1.1.0",
+    "underscore": "^1.8.3"
+  }
+}
