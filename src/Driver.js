@@ -196,8 +196,17 @@ Driver.prototype = {
 
     return this;
   },
-  pipe: function(f) {
-    return f(this);
+  pipe: function(f, args) {
+    if(arguments.length === 0) {
+      return this;
+    }
+    else {
+      var args = [];
+      Array.prototype.push.apply(args, arguments);
+      args[0] = this;
+
+      return f.apply(args);
+    }
   }
 };
 
