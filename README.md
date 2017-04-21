@@ -47,7 +47,7 @@ Reference the source for a full list of [functions](https://github.com/bpeacock/
 Running Tests
 -------------
 
-Open the javascript console on your webpage:
+Open the javascript console on your webpage. Make sure to check "preserve log" so that the log doesn't clear when navigating between pages.
 
 **Run all tests:** `testster.run()`
 
