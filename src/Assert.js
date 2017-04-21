@@ -23,7 +23,7 @@ Assert.prototype = {
   },
   text: function(selector, string, msg) {
     this.test.stack.push(function(next) {
-      var actual = $(selector).first().text();
+      var actual = $(selector).first().text().trim();
 
       if(actual == string) {
         log.success(msg || selector + ' text "' + actual + '"');
