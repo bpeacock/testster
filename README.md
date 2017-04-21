@@ -6,7 +6,7 @@ A simple in-browser behavior test driver. Clicks and such are simulated with jav
 Usage:
 ------
 
-On every webpage to be tested, initialize testster.js and configure the test files. Assuming you are building your client-side JS with [browserify](http://browserify.org/):
+On each webpage to be tested, initialize testster.js and configure the test files. Assuming you are building your client-side JS with [browserify](http://browserify.org/):
 
 ```javascript
 require('testster')({
