@@ -154,6 +154,20 @@ Assert.prototype = {
     });
 
     return this.test;
+  },
+  doesntHaveClass: function(selector, className, msg) {
+    this.test.stack.push(function(next) {
+      if(!$(selector).hasClass(className)) {
+        log.success(msg || selector + ' doesn\'t have "' + className + '"');
+      }
+      else {
+        log.fail(selector + ' has class "' + className + '"');
+      }
+
+      next();
+    });
+
+    return this.test;
   }
 };
 
