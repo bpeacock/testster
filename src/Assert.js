@@ -130,10 +130,24 @@ Assert.prototype = {
       var actual = $(selector).attr(name);
 
       if(actual == value) {
-        log.success(msg || selector + ' text "' + actual + '"');
+        log.success(msg || selector + ' attribute is "' + actual + '"');
       }
       else {
-        log.fail(selector + ' text returned "' + actual + '" instead of "' + value + '"');
+        log.fail(selector + ' attribute returned "' + actual + '" instead of "' + value + '"');
+      }
+
+      next();
+    });
+
+    return this.test;
+  },
+  hasClass: function(selector, className, msg) {
+    this.test.stack.push(function(next) {
+      if($(selector).hasClass(className)) {
+        log.success(msg || selector + ' has class "' + className + '"');
+      }
+      else {
+        log.fail(selector + ' doesn\'t have "' + className + '"');
       }
 
       next();
