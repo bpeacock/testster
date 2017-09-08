@@ -97,7 +97,7 @@ Assert.prototype = {
   },
   notVisible: function(selector, msg) {
     this.test.stack.push(function(next) {
-      if($(selector + ':hidden').length) {
+      if($(selector + ':hidden').length === 0) {
         log.success(msg || selector + ' is not visible');
       }
       else {
